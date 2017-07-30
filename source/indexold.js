@@ -15,7 +15,6 @@
 // scene.add( object );
 
 import 'THREE'
-// require('THREE')
 // if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 var renderer, scene, camera, stats;
 var particles, uniforms;

@@ -7,6 +7,15 @@ const BUILD = path.resolve(__dirname, 'build')
 const SOURCE = path.resolve(__dirname, 'source')
 
 module.exports = {
+	// could do externals, but better to do own module
+	externals: {
+		THREE: 'THREE'
+	}
+	// resolve: {
+	// 	alias: {
+	// 		THREE: "./source/libraries/three.js", // min?
+	// 	},
+	// },
 	entry: path.resolve(SOURCE, 'main.js'),
 	output: {
 		path: BUILD,
