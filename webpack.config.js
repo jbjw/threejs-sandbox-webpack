@@ -1,8 +1,7 @@
+const path = require('path')
 const webpack = require('webpack')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const OpenBrowserPlugin = require('open-browser-webpack-plugin')
-
-const path = require('path')
 
 const BUILD = path.resolve(__dirname, 'build')
 const SOURCE = path.resolve(__dirname, 'source')
@@ -53,9 +52,9 @@ module.exports = {
 			},
 		]),
 
-		new OpenBrowserPlugin({
-			url: 'http://localhost:3000/'
-		}),
+		// new OpenBrowserPlugin({
+		// 	url: 'http://localhost:3000/'
+		// }),
 	],
 	// devServer: {
 	//   historyApiFallback: true,
