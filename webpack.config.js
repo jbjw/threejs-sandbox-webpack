@@ -10,7 +10,7 @@ module.exports = {
 	// could do externals, but better to do own module
 	externals: {
 		THREE: 'THREE'
-	}
+	},
 	// resolve: {
 	// 	alias: {
 	// 		THREE: "./source/libraries/three.js", // min?
@@ -40,6 +40,16 @@ module.exports = {
 				loader: 'eslint-loader',
 				options: {
 					configFile: './.eslintrc',
+				},
+			},
+			{
+				test: /\.(jpg|png|svg)$/,
+				include: [SOURCE],
+				exclude: /node_modules/,
+				loader: 'file-loader',
+				options: {
+					name: '[path][name].[hash].[ext]',
+					// name: './images/[hash].[ext]'
 				},
 			},
 			{
