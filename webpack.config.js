@@ -8,9 +8,9 @@ const SOURCE = path.resolve(__dirname, 'source')
 
 module.exports = {
 	// could do externals, but better to do own module
-	externals: {
-		THREE: 'THREE'
-	},
+	// externals: {
+	// 	THREE: 'THREE'
+	// },
 	// resolve: {
 	// 	alias: {
 	// 		THREE: "./source/libraries/three.js", // min?
@@ -32,16 +32,16 @@ module.exports = {
 					presets: ['es2015', 'react'],
 				},
 			},
-			{
-				test: /\.jsx?$/,
-				enforce: 'pre',
-				include: [SOURCE],
-				exclude: /node_modules/,
-				loader: 'eslint-loader',
-				options: {
-					configFile: './.eslintrc',
-				},
-			},
+			// {
+			// 	test: /\.jsx?$/,
+			// 	enforce: 'pre',
+			// 	include: [SOURCE],
+			// 	exclude: /node_modules/,
+			// 	loader: 'eslint-loader',
+			// 	options: {
+			// 		configFile: './.eslintrc',
+			// 	},
+			// },
 			{
 				test: /\.(jpg|png|svg)$/,
 				include: [SOURCE],
@@ -87,7 +87,10 @@ module.exports = {
 	//     ignored: /node_modules/
 	//   }
 	// },
-	devtool: 'source-map',
+	// 'source-map'
+	// 'eval-source-map'
+	// "eval-cheap-module-source-map"
+	devtool: 'eval-cheap-module-source-map',
 	devServer: {
 		inline: true,
 		// hot: true,

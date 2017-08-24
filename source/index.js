@@ -1,19 +1,23 @@
-import THREE from 'THREE'
+import * as THREE from './libraries/three.module.js'
+import Stats from './libraries/stats.js'
+import presets from './presets.js'
+import dat from './libraries/dat.gui.js'
+import OrbitControls from './libraries/OrbitControls.js'
+import PointerLockControls from './libraries/PointerLockControls.js'
 
-// ThreeJS scene
+// THREEJS scene
 'use strict';
 
-// https://stemkoski.github.io/Three.js/
-
-var stats = new Stats();
-stats.showPanel( 1 ); // 0: fps, 1: ms, 2: mb, 3+: custom
-document.body.appendChild( stats.dom );
+var stats = new Stats()
+stats.showPanel( 1 ) // 0: fps, 1: ms, 2: mb, 3+: custom
+document.body.appendChild( stats.dom )
 
 const width = window.innerWidth
 const height = window.innerHeight
 const scene = new THREE.Scene()
 const camera = new THREE.PerspectiveCamera( 120, window.innerWidth / window.innerHeight, 0.1, 100000 )
-scene.add(camera)
+
+scene.add( camera )
 // .focus,.fov, .zoom
 // const camera = new THREE.OrthographicCamera( width / - 2, width / 2, height / 2, height / - 2, -10, 1000 );
 
@@ -27,9 +31,7 @@ camera.position.set( 0, 5, 5 )
 
 // camera.rotation.x = Math.PI/2
 
-
-
-// const controls = new THREE.PointerLockControls( camera );
+// const controls = new PointerLockControls( camera );
 // scene.add( controls.getObject() );
 
 // document.addEventListener( 'mousemove', function ( e ) {
@@ -54,7 +56,7 @@ function lockChangeAlert() {
 	}
 }
 
-const controls = new THREE.OrbitControls(camera);
+const controls = new OrbitControls(camera);
 // // controls.enablePan = false;
 // controls.keyPanSpeed = 70
 // // controls.enableZoom = false;
@@ -68,15 +70,15 @@ const controls = new THREE.OrbitControls(camera);
 const textures = {}
 const materials = {}
 
-const dirtTexture = THREE.ImageUtils.loadTexture( "assets/textures/dirt.jpg" )
+const dirtTexture = THREE.ImageUtils.loadTexture( 'assets/textures/dirt.jpg' )
 dirtTexture.anisotropy = renderer.getMaxAnisotropy()
 const dirtMaterial = new THREE.MeshBasicMaterial( { map: dirtTexture, side: THREE.DoubleSide } )
 
-const woodTexture = THREE.ImageUtils.loadTexture( "assets/textures/wood.jpg" )
+const woodTexture = THREE.ImageUtils.loadTexture( 'assets/textures/wood.jpg' )
 woodTexture.anisotropy = renderer.getMaxAnisotropy()
 const woodMaterial = new THREE.MeshBasicMaterial( { map: woodTexture, side: THREE.DoubleSide } )
 
-const grassTexture = THREE.ImageUtils.loadTexture( "assets/textures/grass.png" )
+const grassTexture = THREE.ImageUtils.loadTexture( 'assets/textures/grass.png' )
 grassTexture.anisotropy = renderer.getMaxAnisotropy()
 const grassMaterial = new THREE.MeshBasicMaterial( { map: grassTexture, side: THREE.DoubleSide } )
 
@@ -119,10 +121,8 @@ var guiParams = {
 //   preset: 'Flow'
 // });
 var gui = new dat.GUI( { load: presets } )
-// var gui = new dat.GUI()
 var guiColor = gui.addColor( guiParams, 'color' )
 gui.remember( guiParams )
-
 
 var camGui = gui.addFolder( 'camera' )
 var camGuiPosition = camGui.addFolder( 'position' )

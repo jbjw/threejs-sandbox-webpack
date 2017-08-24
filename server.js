@@ -40,7 +40,7 @@ const app = express();
 
 // app.use, app.post, etc
 app.use( log )
-app.use(express.static(__dirname, {index: 'index.html'}));
+app.use(express.static('build/', {index: 'index.html'}));
 // app.use( httpsRedirect )
 
 // app.use( '/admin', admin ); // mount the sub app
